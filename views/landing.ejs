@@ -7,6 +7,20 @@
 </head>
 <body>
     <h1>dashboard</h1>
-    
+    <% console.log(entries) %>
+    <ul> entries
+        <% for(let i =0 ; i<entries.length; i++){%>
+            <li>
+                name:<%= entries[i].name %>
+            </li>
+       <% }; %>
+       </ul><br>
+       <ul> goals
+        <% for(let i =0 ; i<goals.length; i++ ){%>
+            <li>
+                name:<%= goals[i].name %>
+            </li>
+       <% }; %>
+    </ul>
 </body>
 </html>

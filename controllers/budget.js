@@ -1,8 +1,8 @@
 const express = require("express")
 const router = express.Router()
-const Entries = require('../models/budget.js')
+const Entries = require('../models/entries.js')
 const Goals = require('../models/goals.js')
-const Entries = require("../models/budget.js")
+//const Entries = require("../models/entries.js")
 
 
 //routes (induces)
@@ -10,25 +10,30 @@ const Entries = require("../models/budget.js")
 //index
 router.get('', async (req,res) =>{
     try{
-   const  allentires = await Entries.find({})
+    allentires = await Entries.find({})
     } catch(err){
         console.error
     }
     try {
-        const allgoals = await Goals.find({})
+         allgoals = await Goals.find({})
     } catch (error) {
         console.error()
     }
+    
     res.render('landing.ejs',{
         entries: allentires,
-        goal: allgoals
+        goals: allgoals
 
     })
 })
 //new
-router.get('/new', (req,res) =>{
+router.get('/new/entries', (req,res) =>{
+    //res.send('new page')
+     res.render('new_entries.ejs')
+})
+router.get('/new/goals', (req,res) =>{
     res.send('new page')
-    // res.render('new.ejs')
+    // res.render('new_goals.ejs')
 })
 //delete
 router.delete('/entries/:id', (req,res) =>{
@@ -63,7 +68,7 @@ router.put('userinfo/:id',(req,res)=>{
     })
 })
 //create
-router.post('',(req,res) =>{
+router.post('/',(req,res) =>{
     if(req.body.isIncome === 'on'){
         req.body.isIncome = true
     } else{
@@ -78,8 +83,8 @@ router.post('',(req,res) =>{
         }
     })
 })
-router.post('',(req,res) =>{
-    Entries.create(req.body,(err,createdData)=>{
+router.post('/goals',(req,res) =>{
+    Goals.create(req.body,(err,createdData)=>{
         if (err){
             res.send(err)
         } else{
@@ -87,15 +92,7 @@ router.post('',(req,res) =>{
         }
     })
 })
-router.post('',(req,res) =>{
-    Entries.create(req.body,(err,createdData)=>{
-        if (err){
-            res.send(err)
-        } else{
-            res.redirect("/landing")
-        }
-    })
-})
+
 
 
 //edit
@@ -110,3 +107,6 @@ router.get("goals/:id/edit", (req,res)=>{
     })
 })
 //show
+
+
+module.exports = router
