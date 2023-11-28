@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>goals edit page</title>
+</head>
+<body>
+    <h1>Edit Goals page</h1>
+    <form action="/budget/goals/<%=goals.id%>?_method=PUT" method="POST">
+    name: <input type="text" name="name" placeholder="<%= goals.name %>"><br>        
+    Goal Amount: <input type="text" name="goalAmmount" placeholder="<%=goals.goalAmmount%>"><br>
+    discription: <input type="text" name="disc" placeholder="<%= goals.disc %>"> <br>
+    Current Amount: <input type="text" name="currentAmmount" placeholder="<%= goals.currentAmmount %>"><br>
+    accomplished: <input type="checkbox" name="accomplished"
+    <% if(goals.accomplished === true){ %>
+       checked
+        <% } %>
+    ><br>
+    <input type="submit" name="" value="Submit changes">
+
+</form>
+</body>
+</html>

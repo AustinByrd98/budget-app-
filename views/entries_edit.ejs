@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>entry edit page </title>
+</head>
+<body>
+    <h1>Entry edit page</h1>
+    <form action="/budget/entries/<%=entries.id%>?_method=PUT" method="POST">
+        name: <input type="text" name="name" placeholder="<%= entries.name %>"><br>
+        amount: <input type="text" name="amount" placeholder="<%= entries.amount %>"><br>
+        discription: <input type="text" name="disc" placeholder="<%= entries.disc %>"><br>
+        Is it income: <input type="checkbox" name="isIncome"
+        <% if(entries.isIncome === true){ %>
+            checked
+        <% } %>
+        >
+        <input type="submit" value="submit changes">
+</body>
+</html>

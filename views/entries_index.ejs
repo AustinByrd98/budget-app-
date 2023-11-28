@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Entries index page</h1>
+    <ul>
+        entries
+        <% for(let i =0 ; i<entries.length; i++){%>
+            <li>
+                name:<%= entries[i].name %>
+                <a href="/budget/entries/<%= entries[i].id %>/edit">edit entry</a>
+            </li>
+            <% } %>
+    </ul>
+</body>
+</html>

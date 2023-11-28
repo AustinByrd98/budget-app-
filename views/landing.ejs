@@ -7,14 +7,15 @@
 </head>
 <body>
     <h1>dashboard</h1>
-    <% console.log(entries) %>
     <ul> entries
         <% for(let i =0 ; i<entries.length; i++){%>
             <li>
                 name:<%= entries[i].name %>
             </li>
        <% }; %>
-       </ul><br>
+       </ul>
+       <a href="/budget/entries/all">see all entries</a>
+       <br>
        <ul> goals
         <% for(let i =0 ; i<goals.length; i++ ){%>
             <li>
@@ -22,5 +23,6 @@
             </li>
        <% }; %>
     </ul>
+    <a href="/budget/goals/all">see all goals</a>
 </body>
 </html>

@@ -26,14 +26,28 @@ router.get('', async (req,res) =>{
 
     })
 })
+router.get('/entries/all',async (req,res)=>{
+    Entries.find({},(err,data)=>{
+         res.render('entries_index.ejs',{
+            entries: data
+        })
+    })
+})
+router.get('/goals/all',(req,res)=>{
+    Goals.find({},(err,data)=>{
+        res.render("goals_index.ejs",{
+            goals: data
+        })
+    })
+})
 //new
 router.get('/new/entries', (req,res) =>{
     //res.send('new page')
      res.render('new_entries.ejs')
 })
 router.get('/new/goals', (req,res) =>{
-    res.send('new page')
-    // res.render('new_goals.ejs')
+    // res.send('new page')
+    res.render('new_goals.ejs')
 })
 //delete
 router.delete('/entries/:id', (req,res) =>{
@@ -52,14 +66,24 @@ router.delete('/userinfo/:id', (req,res) =>{
     })
 })
 //update
-router.put('entires/:id',(req,res)=>{
+router.put('/entries/:id',(req,res)=>{
+    if(req.body.isIncome === 'on') {
+        req.body.isIncome = true
+    } else {
+        req.body.isIncome = false
+    }
     Entries.findByIdAndUpdate(req.params.id,req.body,{new:true},(req,updatedData) =>{
-        res.redirect('/landing')
+        res.redirect('/budget')
     })
 })
-router.put('goals/:id',(req,res)=>{
+router.put('/goals/:id',(req,res)=>{
+    if(req.body.accomplished === 'on') {
+        req.body.accomplished = true
+    } else {
+        req.body.accomplished = false
+    }
     Goals.findByIdAndUpdate(req.params.id,req.body,{new:true},(req,updatedData) =>{
-        res.redirect('/landing')
+        res.redirect('/budget')
     })
 })
 router.put('userinfo/:id',(req,res)=>{
@@ -79,7 +103,7 @@ router.post('/',(req,res) =>{
         if (err){
             res.send(err)
         } else{
-            res.redirect("/landing")
+            res.redirect("/budget")
         }
     })
 })
@@ -88,7 +112,7 @@ router.post('/goals',(req,res) =>{
         if (err){
             res.send(err)
         } else{
-            res.redirect("/landing")
+            res.redirect("/budget")
         }
     })
 })
@@ -96,17 +120,31 @@ router.post('/goals',(req,res) =>{
 
 
 //edit
-router.get("entries/:id/edit", (req,res)=>{
+router.get("/entries/:id/edit", (req,res)=>{
     Entries.findById(req.params.id,(err, founddata)=>{
-        res.render('edit.ejs', {entries:founddata})
+        // res.send(founddata)
+        res.render('entries_edit.ejs', {entries:founddata})
     })
 })
-router.get("goals/:id/edit", (req,res)=>{
+router.get("/goals/:id/edit", (req,res)=>{
     Goals.findById(req.params.id,(err, foundGoals)=>{
-        res.render('edit.ejs', {fruit:foundGoals})
+        res.render('goals_edit.ejs', {goals:foundGoals})
     })
 })
 //show
-
+router.get('entry/:id',(req,res)=>{
+    Entries.findById(req.params.id,(err,foundEntry)=>{
+        res.render('entries_show.ejs',{
+            entry: foundEntry
+        })
+    })
+})
+router.get('goal/:id',(req,res)=>{
+    Entries.findById(req.params.id,(err,foundGoal)=>{
+        res.render('goals_show.ejs',{
+            goal: foundGoal
+        })
+    })
+})
 
 module.exports = router

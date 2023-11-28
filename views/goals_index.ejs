@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goals index page</title>
+</head>
+<body>
+    <h1>goals index page</h1>
+    <ul>
+        <% for(let i =0 ; i<goals.length; i++ ){%>
+            <li>
+                name:<%= goals[i].name %>
+                <a href="/budget/goals/<%= goals[i].id %>/edit">edit goal</a>
+            </li>
+            <% } %>
+    </ul>
+</body>
+</html>
