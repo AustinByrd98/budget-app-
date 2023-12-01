@@ -16,7 +16,7 @@ const isAuthenticated = (req,res,next) =>{
 //routes (induces)
 
 //index
-router.get('/',isAuthenticated, async (req,res) =>{
+router.get('/', async (req,res) =>{
     let allEntires 
     let allGoals
     try{
@@ -32,7 +32,8 @@ router.get('/',isAuthenticated, async (req,res) =>{
     
     res.render('landing.ejs',{
         entries: allEntires,
-        goals: allGoals
+        goals: allGoals,
+        currentUser:req.session.currentUser
 
     })
 })
@@ -51,7 +52,7 @@ router.get('/new/entries',isAuthenticated, (req,res) =>{
 })
 
 //delete
-router.delete('/entries/:id',isAuthenticated, (req,res) =>{
+router.delete('/:id',isAuthenticated, (req,res) =>{
     Entries.findByIdAndDelete(req.params.id,(err,data)=>{
         res.redirect('/landing')
     })
@@ -108,7 +109,7 @@ router.get("/entries/:id/edit",isAuthenticated, (req,res)=>{
 })
 
 //show
-router.get('/entry/:id',isAuthenticated,(req,res)=>{
+router.get('/:id',isAuthenticated,(req,res)=>{
     Entries.findById(req.params.id,(err,foundEntry)=>{
         res.render('entries_show.ejs',{
             entry: foundEntry

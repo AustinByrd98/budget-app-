@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <%- include('./partials/nav.ejs') %>
 <% console.log(goal) %>
     <h1><%= goal.name %></h1> <br>
     Target Amount: <%= goal.goalAmmount %>br
@@ -20,6 +20,7 @@
     <% } else { %>
         Keep going you have'nt meet your goal yet.
     <% } %>
-
+    <form action="/goals/<%=goal.id %>?_method=DELETE" method="POST" >
+        <input type="submit" value="DELETE" />
 </body>
 </html>

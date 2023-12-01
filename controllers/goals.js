@@ -28,13 +28,13 @@ goal.get('/new/goals',isAuthenticated, (req,res) =>{
     res.render('new_goals.ejs')
 })
 //delete
-goal.delete('/goals/:id',isAuthenticated, (req,res) =>{
+goal.delete('/:id',isAuthenticated, (req,res) =>{
     Goals.findByIdAndDelete(req.params.id,(err,data)=>{
-        res.redirect('/landing')
+        res.redirect('/budget')
     })
 })
 //update
-goal.put('/goals/:id',isAuthenticated, (req,res)=>{
+goal.put('/:id',isAuthenticated, (req,res)=>{
     if(req.body.accomplished === 'on') {
         req.body.accomplished = true
     } else {
@@ -45,7 +45,7 @@ goal.put('/goals/:id',isAuthenticated, (req,res)=>{
     })
 })
 //create
-goal.post('/goals',isAuthenticated, (req,res) =>{
+goal.post('/',isAuthenticated, (req,res) =>{
     Goals.create(req.body,(err,createdData)=>{
         if (err){
             res.send(err)
@@ -55,7 +55,7 @@ goal.post('/goals',isAuthenticated, (req,res) =>{
     })
 })
 //edit
-goal.get("/goals/:id/edit",isAuthenticated, (req,res)=>{
+goal.get("/:id/edit",isAuthenticated, (req,res)=>{
     Goals.findById(req.params.id,(err, foundGoals)=>{
         res.render('goals_edit.ejs', {goals:foundGoals})
     })

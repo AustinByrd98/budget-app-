@@ -6,13 +6,15 @@
     <title>Document</title>
 </head>
 <body>
+    <%- include('./partials/nav.ejs') %>
     <h1>Entries index page</h1>
     <ul>
         entries
         <% for(let i =0 ; i<entries.length; i++){%>
             <li>
                 name:<%= entries[i].name %>
-                <a href="/budget/entries/<%= entries[i].id %>/edit">edit entry</a>
+                <a href="/budget/entries/<%= entries[i].id %>/edit">edit entry<a>
+                    <a href="/budget/<%= entries[i].id %>">look closer</a>
             </li>
             <% } %>
     </ul>

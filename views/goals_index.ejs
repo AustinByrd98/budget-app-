@@ -6,13 +6,14 @@
     <title>Goals index page</title>
 </head>
 <body>
+    <%- include('./partials/nav.ejs') %>
     <h1>goals index page</h1>
     <ul>
         <% for(let i =0 ; i<goals.length; i++ ){%>
             <li>
                 name:<%= goals[i].name %>
-                <a href="/budget/goals/<%= goals[i].id %>/edit">edit goal</a>
-                <a href="/budget/<%= goals[i].id %>">look closer</a>
+                <a href="/goals/<%= goals[i].id %>/edit">edit goal</a>
+                <a href="/goals/<%= goals[i].id %>">look closer</a>
             </li>
             <% } %>
     </ul>

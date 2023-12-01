@@ -6,8 +6,9 @@
     <title>goals edit page</title>
 </head>
 <body>
+    <%- include('./partials/nav.ejs') %>
     <h1>Edit Goals page</h1>
-    <form action="/budget/goals/<%=goals.id%>?_method=PUT" method="POST">
+    <form action="/goals/<%=goals.id%>?_method=PUT" method="POST">
     name: <input type="text" name="name" placeholder="<%= goals.name %>"><br>        
     Goal Amount: <input type="text" name="goalAmmount" placeholder="<%=goals.goalAmmount%>"><br>
     discription: <input type="text" name="disc" placeholder="<%= goals.disc %>"> <br>

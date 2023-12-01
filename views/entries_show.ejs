@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-   
+    <%- include('./partials/nav.ejs') %>
     <h1><%= entry.name %></h1>
     amount: <%= entry.amount %> <br>
     discription: <%= entry.disc %> <br>
@@ -15,6 +15,7 @@
     <% } else { %>
         You spent money
     <% } %>
-   
+    <form action="/budget/<%=entry.id %>?_method=DELETE" method="POST" >
+        <input type="submit" value="DELETE" />
 </body>
 </html>

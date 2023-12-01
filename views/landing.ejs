@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
     <title>landing page </title>
 </head>
 <body>
+    <%- include('./partials/nav.ejs') %>
     <h1>dashboard</h1>
-    <div id="userBox"><% if (currentUser){ %>
+    <div class="box"><% if (currentUser){ %>
     <h2>Welcome <%= currentUser.name %> </h2>
     <ul>
         <li><form action="/sessions?_method=DELETE" method="POST">
@@ -15,33 +16,35 @@
         </form></li>
     </ul>
     <% }else{ %>
-        <ul>
-            <li><a href="/users/new">Sign UP</a></li>
-            <li><a href="/sessions/new">Log In</a></li>
+        <ul class="list-group">
+            <li class="list-group-item"><a href="/users/new">Sign Up</a></li>
+            <li class="list-group-item"><a href="/sessions/new">Log In</a></li>
             <% } %>
         </ul>
     </div>
    <div>
-    <ul> entries
+    <ul class="list-group">
+        <h2> entries </h2>
         <% for(let i =0 ; i<entries.length; i++){%>
-            <li>
-                name:<%= entries[i].name %>
+            <li class="list-group-item">
+                <%= entries[i].name %>
             </li>
        <% }; %>
        </ul>
        <a href="/budget/entries/all">see all entries</a>
        <br>
-       <ul> 
-        </div>
+       </div>
+        
         <div>
-        goals
+            <h2> goals </h2>
+            <ul class="list-group">
         <% for(let i =0 ; i<goals.length; i++ ){%>
-            <li>
-                name:<%= goals[i].name %>
+            <li class="list-group-item">
+                <%= goals[i].name %>
             </li>
        <% }; %>
     </ul>
-    <a href="/budget/goals/all">see all goals</a>
+    <a href="/goals/all">see all goals</a>
     </div>
 </body>
 </html>
