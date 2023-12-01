@@ -54,15 +54,10 @@ router.get('/new/entries',isAuthenticated, (req,res) =>{
 //delete
 router.delete('/:id',isAuthenticated, (req,res) =>{
     Entries.findByIdAndDelete(req.params.id,(err,data)=>{
-        res.redirect('/landing')
+        res.redirect('/budget')
     })
 })
 
-router.delete('/userinfo/:id', (req,res) =>{
-    UserInfo.findByIdAndDelete(req.params.id,(err,data)=>{
-        res.redirect('/landing')
-    })
-})
 //update
 router.put('/entries/:id',isAuthenticated,(req,res)=>{
     if(req.body.isIncome === 'on') {
@@ -75,11 +70,7 @@ router.put('/entries/:id',isAuthenticated,(req,res)=>{
     })
 })
 
-router.put('userinfo/:id',(req,res)=>{
-    UserInfo.findByIdAndUpdate(req.params.id,req.body,{new:true},(req,updatedData) =>{
-        res.redirect('/landing')
-    })
-})
+
 //create
 router.post('/',isAuthenticated,(req,res) =>{
     if(req.body.isIncome === 'on'){
@@ -96,9 +87,6 @@ router.post('/',isAuthenticated,(req,res) =>{
         }
     })
 })
-
-
-
 
 //edit
 router.get("/entries/:id/edit",isAuthenticated, (req,res)=>{

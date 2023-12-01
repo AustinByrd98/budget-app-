@@ -7,24 +7,25 @@
 </head>
 <body>
     <%- include('./partials/nav.ejs') %>
-    <h1>dashboard</h1>
-    <div class="box"><% if (currentUser){ %>
+    <h1 class="px-3" >dashboard</h1>
+    <div class="box px-3"><% if (currentUser){ %>
     <h2>Welcome <%= currentUser.name %> </h2>
     <ul>
-        <li><form action="/sessions?_method=DELETE" method="POST">
-            <input type="submit" value="log out ">
+        <li>
+            <form class="px-3" action="/sessions?_method=DELETE" method="POST">
+            <input class="px-3" type="submit" value="log out ">
         </form></li>
-    </ul>
+    </ul >
     <% }else{ %>
-        <ul class="list-group">
-            <li class="list-group-item"><a href="/users/new">Sign Up</a></li>
-            <li class="list-group-item"><a href="/sessions/new">Log In</a></li>
+        <ul class="px-3 ">
+            <li class="px-3"><a href="/users/new">Sign Up</a></li>
+            <li class="px-3"><a href="/sessions/new">Log In</a></li>
             <% } %>
         </ul>
     </div>
-   <div>
-    <ul class="list-group">
-        <h2> entries </h2>
+   <div class="px-2" >
+    <ul class="">
+        <h2 class="px-3" > entries </h2>
         <% for(let i =0 ; i<entries.length; i++){%>
             <li class="list-group-item">
                 <%= entries[i].name %>
@@ -34,10 +35,10 @@
        <a href="/budget/entries/all">see all entries</a>
        <br>
        </div>
-        
-        <div>
-            <h2> goals </h2>
-            <ul class="list-group">
+        <br>
+        <div class="px-3">
+            <h2 class="" > goals </h2>
+            <ul class="px-2">
         <% for(let i =0 ; i<goals.length; i++ ){%>
             <li class="list-group-item">
                 <%= goals[i].name %>
@@ -46,5 +47,6 @@
     </ul>
     <a href="/goals/all">see all goals</a>
     </div>
+    <br>
 </body>
 </html>

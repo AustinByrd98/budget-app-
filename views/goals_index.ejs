@@ -7,8 +7,8 @@
 </head>
 <body>
     <%- include('./partials/nav.ejs') %>
-    <h1>goals index page</h1>
-    <ul>
+    <h1 class="has-text-centered" >goals index page</h1> <br>
+    <ul class="has-text-centered" >
         <% for(let i =0 ; i<goals.length; i++ ){%>
             <li>
                 name:<%= goals[i].name %>

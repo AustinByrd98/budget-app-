@@ -7,12 +7,12 @@
 </head>
 <body>
     <%- include('./partials/nav.ejs') %>
-    <h1>Edit Goals page</h1>
-    <form action="/goals/<%=goals.id%>?_method=PUT" method="POST">
-    name: <input type="text" name="name" placeholder="<%= goals.name %>"><br>        
-    Goal Amount: <input type="text" name="goalAmmount" placeholder="<%=goals.goalAmmount%>"><br>
-    discription: <input type="text" name="disc" placeholder="<%= goals.disc %>"> <br>
-    Current Amount: <input type="text" name="currentAmmount" placeholder="<%= goals.currentAmmount %>"><br>
+    <h1 class="pl-2">Edit Goals page</h1>
+    <form class="field pl-3" action="/goals/<%=goals.id%>?_method=PUT" method="POST">
+    name: <input type="text" name="name" value="<%= goals.name %>"><br>        
+    Goal Amount: <input type="text" name="goalAmmount" value="<%=goals.goalAmmount%>"><br>
+    discription: <input type="text" name="disc" value="<%= goals.disc %>"> <br>
+    Current Amount: <input type="text" name="currentAmmount" value="<%= goals.currentAmmount %>"><br>
     accomplished: <input type="checkbox" name="accomplished"
     <% if(goals.accomplished === true){ %>
        checked

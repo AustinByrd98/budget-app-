@@ -7,7 +7,8 @@
 </head>
 <body>
     <%- include('./partials/nav.ejs') %>
-    <h1><%= entry.name %></h1>
+    <h1 class="has-text-centered" ><%= entry.name %></h1> <br>
+    <div class="px-2" >
     amount: <%= entry.amount %> <br>
     discription: <%= entry.disc %> <br>
     income:  <% if(entry.income === true){ %>
@@ -17,5 +18,6 @@
     <% } %>
     <form action="/budget/<%=entry.id %>?_method=DELETE" method="POST" >
         <input type="submit" value="DELETE" />
+    </div>
 </body>
 </html>
