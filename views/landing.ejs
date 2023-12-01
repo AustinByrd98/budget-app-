@@ -7,6 +7,21 @@
 </head>
 <body>
     <h1>dashboard</h1>
+    <div id="userBox"><% if (currentUser){ %>
+    <h2>Welcome <%= currentUser.name %> </h2>
+    <ul>
+        <li><form action="/sessions?_method=DELETE" method="POST">
+            <input type="submit" value="log out ">
+        </form></li>
+    </ul>
+    <% }else{ %>
+        <ul>
+            <li><a href="/users/new">Sign UP</a></li>
+            <li><a href="/sessions/new">Log In</a></li>
+            <% } %>
+        </ul>
+    </div>
+   <div>
     <ul> entries
         <% for(let i =0 ; i<entries.length; i++){%>
             <li>
@@ -16,7 +31,10 @@
        </ul>
        <a href="/budget/entries/all">see all entries</a>
        <br>
-       <ul> goals
+       <ul> 
+        </div>
+        <div>
+        goals
         <% for(let i =0 ; i<goals.length; i++ ){%>
             <li>
                 name:<%= goals[i].name %>
@@ -24,5 +42,6 @@
        <% }; %>
     </ul>
     <a href="/budget/goals/all">see all goals</a>
+    </div>
 </body>
 </html>

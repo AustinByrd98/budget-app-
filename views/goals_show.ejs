@@ -7,5 +7,19 @@
 </head>
 <body>
     
+<% console.log(goal) %>
+    <h1><%= goal.name %></h1> <br>
+    Target Amount: <%= goal.goalAmmount %>br
+    DUE Date: <%= goal.dateDue %> <br>
+    What you have so far: <%= goal.currentAmmount %> <br>
+    Priority: <%= goal.priority %> <br>
+    Goal discription: <%= goal.disc %> <br>
+    Reward: <p><%= goal.reward %></p> <br>
+    Accomplished:  <% if(goal.accomplished === true){ %>
+        Congratulations enjoy you reward!
+    <% } else { %>
+        Keep going you have'nt meet your goal yet.
+    <% } %>
+
 </body>
 </html>
