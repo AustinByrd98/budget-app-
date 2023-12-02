@@ -9,9 +9,9 @@
     <%- include('./partials/nav.ejs') %>
     <h1 class="has-text-centered" ><%= entry.name %></h1> <br>
     <div class="px-2" >
-    amount: <%= entry.amount %> <br>
-    discription: <%= entry.disc %> <br>
-    income:  <% if(entry.income === true){ %>
+    Amount: <%= entry.amount %> <br>
+    Discription: <%= entry.disc %> <br>
+    Income:  <% if(entry.income === true){ %>
         You made money
     <% } else { %>
         You spent money

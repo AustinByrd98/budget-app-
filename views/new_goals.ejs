@@ -7,14 +7,14 @@
 </head>
 <body>
     <%- include('./partials/nav.ejs') %>
-    <h1>new goals page </h1>
+    <h1>New Goals Page </h1>
     <form action="/goals" method="POST">
-        name: <input type="text" name="name" placeholder="name here"><br>        
+        Name: <input type="text" name="name" placeholder="name here"><br>        
         Goal Amount: <input type="text" name="goalAmmount" required><br>
         DUE Date: <input type="date" name="dateDue" required> <br>
         Priority: <input type="range" name="priority" min="0" max="10" required><br>
         Reward: <input type="text" name="reward" id=""> <br>
-        discription: <input type="text" name="disc"> <br>
+        Discription: <input type="text" name="disc"> <br>
         <input type="hidden" name="currentAmmount" value="0"><br>
         <input type="hidden" name="accomplished" value="false">
 

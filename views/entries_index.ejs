@@ -7,14 +7,14 @@
 </head>
 <body>
     <%- include('./partials/nav.ejs') %>
-    <h1 class="has-text-centered" >Entries index page</h1>
+    <h1 class="has-text-centered" >Entries Index Page</h1>
     <br>
        
         <ul class="has-text-centered" >
         <% for(let i =0 ; i<entries.length; i++){%>
             <li>
-                name:<%= entries[i].name %>
-                <a href="/budget/entries/<%= entries[i].id %>/edit">edit entry<a>
+                Name:<%= entries[i].name %>
+                <a href="/budget/entries/<%= entries[i].id %>/edit">edit Entry<a>
                     <a href="/budget/<%= entries[i].id %>">look closer</a>
             </li>
             <% } %> 

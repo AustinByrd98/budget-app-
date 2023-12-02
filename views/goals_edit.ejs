@@ -9,11 +9,11 @@
     <%- include('./partials/nav.ejs') %>
     <h1 class="pl-2">Edit Goals page</h1>
     <form class="field pl-3" action="/goals/<%=goals.id%>?_method=PUT" method="POST">
-    name: <input type="text" name="name" value="<%= goals.name %>"><br>        
+    Name: <input type="text" name="name" value="<%= goals.name %>"><br>        
     Goal Amount: <input type="text" name="goalAmmount" value="<%=goals.goalAmmount%>"><br>
-    discription: <input type="text" name="disc" value="<%= goals.disc %>"> <br>
+    Discription: <input type="text" name="disc" value="<%= goals.disc %>"> <br>
     Current Amount: <input type="text" name="currentAmmount" value="<%= goals.currentAmmount %>"><br>
-    accomplished: <input type="checkbox" name="accomplished"
+    Accomplished: <input type="checkbox" name="accomplished"
     <% if(goals.accomplished === true){ %>
        checked
         <% } %>

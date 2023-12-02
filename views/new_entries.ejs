@@ -7,11 +7,11 @@
 </head>
 <body>
     <%- include('./partials/nav.ejs') %>
-    <h1>new entry page</h1>
+    <h1>New Entry Page</h1>
     <form action="/budget" method="POST">
-        name: <input type="text" name="name" ><br>
-        amount: <input type="text" name="amount"><br>
-        discription: <input type="text" name="disc"><br>
+        Name: <input type="text" name="name" ><br>
+        Amount: <input type="text" name="amount"><br>
+        Discription: <input type="text" name="disc"><br>
         Is it income: <input type="checkbox" name="isIncome">
         <input type="submit" value="create entry">
     </form>

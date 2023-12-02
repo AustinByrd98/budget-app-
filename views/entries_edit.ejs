@@ -8,9 +8,9 @@
     <%- include('./partials/nav.ejs') %>
     <h1 class="has-text-centered" >Entry edit page</h1>
     <form class="px-2" action="/budget/entries/<%=entries.id%>?_method=PUT" method="POST">
-        name: <input type="text" name="name" value="<%= entries.name %>"><br>
-        amount: <input type="text" name="amount" value="<%= entries.amount %>"><br>
-        discription: <input type="text" name="disc" value="<%= entries.disc %>"><br>
+        Name: <input type="text" name="name" value="<%= entries.name %>"><br>
+        Amount: <input type="text" name="amount" value="<%= entries.amount %>"><br>
+        Discription: <input type="text" name="disc" value="<%= entries.disc %>"><br>
         Is it income: <input type="checkbox" name="isIncome"
         <% if(entries.isIncome === true){ %>
             checked

@@ -7,7 +7,7 @@
 </head>
 <body>
     <%- include('./partials/nav.ejs') %>
-    <h1 class="px-3" >dashboard</h1>
+    <h1 class="px-3" >DASHBOARD</h1>
     <div class="box px-3"><% if (currentUser){ %>
     <h2>Welcome <%= currentUser.username %> </h2>
     <ul>
@@ -25,19 +25,19 @@
     </div>
    <div class="px-2" >
     <ul class="">
-        <h2 class="px-3" > entries </h2>
+        <h2 class="px-3" > Entries </h2>
         <% for(let i =0 ; i<entries.length; i++){%>
             <li class="list-group-item">
                 <%= entries[i].name %>
             </li>
        <% }; %>
        </ul>
-       <a href="/budget/entries/all">see all entries</a>
+       <a href="/budget/entries/all">See all entries</a>
        <br>
        </div>
         <br>
         <div class="px-3">
-            <h2 class="" > goals </h2>
+            <h2 class="" > Goals </h2>
             <ul class="px-2">
         <% for(let i =0 ; i<goals.length; i++ ){%>
             <li class="list-group-item">
@@ -45,7 +45,7 @@
             </li>
        <% }; %>
     </ul>
-    <a href="/goals/all">see all goals</a>
+    <a href="/goals/all">See all goals</a>
     </div>
     <br>
 </body>

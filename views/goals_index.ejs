@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Goals index page</title>
+    <title>Goals Index Page</title>
 </head>
 <body>
     <%- include('./partials/nav.ejs') %>
-    <h1 class="has-text-centered" >goals index page</h1> <br>
+    <h1 class="has-text-centered" >Goals Index Page</h1> <br>
     <ul class="has-text-centered" >
         <% for(let i =0 ; i<goals.length; i++ ){%>
             <li>
-                name:<%= goals[i].name %>
-                <a href="/goals/<%= goals[i].id %>/edit">edit goal</a>
-                <a href="/goals/<%= goals[i].id %>">look closer</a>
+                Name:<%= goals[i].name %>
+                <a href="/goals/<%= goals[i].id %>/edit">Edit goal</a>
+                <a href="/goals/<%= goals[i].id %>">Look Closer</a>
             </li>
             <% } %>
             <a href="/goals/new">Create New Goals</a>
