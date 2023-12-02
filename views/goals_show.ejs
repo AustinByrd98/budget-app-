@@ -8,7 +8,8 @@
 <body>
     <%- include('./partials/nav.ejs') %>
 <% console.log(goal) %>
-    <h1><%= goal.name %></h1> <br>
+    <h1 class="has-text-centered" ><%= goal.name %></h1> <br>
+    <div class="has-text-centered" >
     Target Amount: <%= goal.goalAmmount %> <br>
     DUE Date: <%= goal.dateDue %> <br>
     What you have so far: <%= goal.currentAmmount %> <br>
@@ -22,5 +23,6 @@
     <% } %>
     <form action="/goals/<%=goal.id %>?_method=DELETE" method="POST" >
         <input type="submit" value="DELETE" />
+    </div>
 </body>
 </html>
