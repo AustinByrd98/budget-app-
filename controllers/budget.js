@@ -46,7 +46,7 @@ router.get('/entries/all',isAuthenticated, (req,res)=>{
 })
 
 //new
-router.get('/new/entries',isAuthenticated, (req,res) =>{
+router.get('/new',isAuthenticated, (req,res) =>{
     //res.send('new page')
      res.render('new_entries.ejs')
 })

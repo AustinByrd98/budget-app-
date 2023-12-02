@@ -23,7 +23,7 @@ goal.get('/all',isAuthenticated,(req,res)=>{
 })
 
 //new
-goal.get('/new/goals',isAuthenticated, (req,res) =>{
+goal.get('/new',isAuthenticated, (req,res) =>{
     // res.send('new page')
     res.render('new_goals.ejs')
 })
