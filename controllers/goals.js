@@ -1,6 +1,7 @@
 const express = require("express")
 const goal = express.Router()
 const Goals = require('../models/goals.js')
+const session = require('express-session')
 
 
 // authentication function

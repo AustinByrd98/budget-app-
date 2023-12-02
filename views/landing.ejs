@@ -9,7 +9,7 @@
     <%- include('./partials/nav.ejs') %>
     <h1 class="px-3" >dashboard</h1>
     <div class="box px-3"><% if (currentUser){ %>
-    <h2>Welcome <%= currentUser.name %> </h2>
+    <h2>Welcome <%= currentUser.username %> </h2>
     <ul>
         <li>
             <form class="px-3" action="/sessions?_method=DELETE" method="POST">

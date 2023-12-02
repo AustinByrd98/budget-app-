@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router()
 const Entries = require('../models/entries.js')
 const Goals = require('../models/goals.js')
+const session = require('express-session')
 
 // authentication function
 const isAuthenticated = (req,res,next) =>{
